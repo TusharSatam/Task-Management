@@ -73,11 +73,11 @@ const App = () => {
     <>
   <ToastContainer />
     <DndProvider backend={HTML5Backend}>
-      <div className="min-h-screen bg-gray-50 py-8 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-full mx-auto bg-white shadow-lg rounded-lg p-8 grid grid-cols-1 md:grid-cols-2 gap-6 h-full">
+      <div className="min-h-screen bg-gray-50 py-4 px-2 sm:px-6 lg:px-8">
+        <div className="max-w-full mx-auto bg-white shadow-lg rounded-lg p-4 sm:p-8 grid grid-cols-1 md:grid-cols-2 gap-6 h-full">
           {/* Left Side: Task Form */}
           <div className="space-y-6">
-            <h1 className="text-3xl font-bold text-gray-900">Task Management</h1>
+            <h1 className="text-2xl sm:text-3xl font-bold text-gray-900">Task Management</h1>
 
             {/* Add Task Section */}
             <div className="space-y-4">
@@ -88,7 +88,7 @@ const App = () => {
                 onChange={(e) =>
                   setNewTask({ ...newTask, title: e.target.value })
                 }
-                className="w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full p-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
               <textarea
                 placeholder="Task Description"
@@ -96,7 +96,7 @@ const App = () => {
                 onChange={(e) =>
                   setNewTask({ ...newTask, description: e.target.value })
                 }
-                className="w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full p-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
               ></textarea>
               <input
                 type="date"
@@ -104,11 +104,11 @@ const App = () => {
                 onChange={(e) =>
                   setNewTask({ ...newTask, dueDate: e.target.value })
                 }
-                className="w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full p-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
               <button
                 onClick={handleAddTask}
-                className="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
               >
                 Add Task
               </button>
@@ -120,7 +120,7 @@ const App = () => {
                 type="text"
                 placeholder="Search tasks..."
                 onChange={handleSearch}
-                className="w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full p-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
             </div>
           </div>
@@ -128,12 +128,12 @@ const App = () => {
           {/* Right Side: Task Listing */}
           <div className="space-y-6 overflow-auto">
             {/* Filters */}
-            <div className="flex justify-center space-x-4 mb-6">
+            <div className="flex justify-start  mb-6 flex-wrap gap-3">
               {["All", "Completed", "Pending", "Overdue"].map((filterOption) => (
                 <button
                   key={filterOption}
                   onClick={() => dispatch(filterTasks(filterOption))}
-                  className={`px-6 py-2 rounded-lg text-lg font-medium ${
+                  className={`px-4 sm:px-6 py-2 rounded-lg text-sm sm:text-lg font-medium ${
                     filter === filterOption
                       ? "bg-blue-600 text-white"
                       : "bg-gray-200 text-gray-700"
